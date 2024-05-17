@@ -25,7 +25,7 @@ require 'RateLimiter/vendor/Autoloader.php';
 目前有3种节流方式,TimeWindow、SlidingTimeWindow和TokenBucket
 
 ``` php
-$client = new Predis\Client([
+$client = new \Predis\Client([
     'host'   => '127.0.0.1',
     'port'   => 6379,
 ]);
@@ -35,7 +35,7 @@ $storage = new \Kkong\RateLimiter\Storage\Redis($client);
 /**
  * 自然天，每天限制1000次
  */
-$timeWindow = new new \Kkong\RateLimiter\Strategy\TimeWindowStrategy($storage);
+$timeWindow = new \Kkong\RateLimiter\Strategy\TimeWindowStrategy($storage);
 $timeWindow->attempt('key', 1000, 86400000);
 
 /**
@@ -48,7 +48,7 @@ $slidingWindow->attempt('key', 1000, 10);
  * 总令牌容量1000，每秒补充10个令牌
  */
 $tokenBucket = new \Kkong\RateLimiter\Strategy\TokenBucketStrategy($storage);
-$tokenBucket->attempt('key', 1000, 10)
+$tokenBucket->attempt('key', 1000, 10);
 ```
 
 存储引擎

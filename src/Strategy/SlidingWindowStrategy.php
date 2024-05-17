@@ -37,7 +37,7 @@ class SlidingWindowStrategy implements StrategyInterface
         if ($count < $limit) {
             $currentTimeKey = $this->getStorageKey($key, $currentTime);
             $lastCount = (int)$this->storage->get($currentTimeKey);
-            $this->storage->set($currentTimeKey, $lastCount + 1);
+            $this->storage->set($currentTimeKey, $lastCount + 1, $windowSize * 2);
             return true;
         }
         return false;
