@@ -2,6 +2,11 @@
 
 使用方法
 -------
+composer安装
+```
+composer require kkong/rate-limiter
+```
+
 将源码下载放置到代码目录，然后在需要使用的代码里引用，或在入口文件里引用
 ```
 require 'RateLimiter/vendor/Autoloader.php';
